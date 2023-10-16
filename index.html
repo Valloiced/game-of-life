@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Game of Life</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">
+            Conway's Game of Life 
+            <img src="./images/game-of-life.png"></img>
+        </h1>
+        <div id="canvas--wrapper">
+            <div class="description">
+                <p id="generation">Generation: </p>
+                <p id="cells--alive">Cells Alive: </p>
+            </div>
+            <canvas id="board"></canvas>
+        </div>
+
+        <div id="controls">
+            <button id="toggler" class="controls--buttons">Start/Generate</button>
+            <div id="divider--h"></div>
+
+            <div id="controls--wrapper">
+                <div id="left--column">
+                    <button id="randomizer" class="controls--buttons">Randomize</button>
+                    <button id="clear" class="controls--buttons">Clear Board</button>
+                    <!-- <input type="select"> -->
+                    <form id="theme">
+                        <p>Theme:</p>
+                        <select id="theme--select">
+                            <option id="theme1" value="rgb(243, 155, 109)" selected>Atomic Tangerine</option>
+                            <option id="theme2" value="rgb(54, 70, 82)">Charcoal</option>
+                            <option id="theme3" value="rgb(238, 38, 119)">Rose</option>
+                            <option id="theme4" value="rgb(26, 88, 97)">Midnight Green</option>
+                            <option id="theme5" value="rgb(112, 25, 159)">Grapes</option>
+                            <option id="theme6" value="rgb(255, 255, 255)">White (not finished)</option>
+                        </select>
+                    </form>
+                </div>
+                <div id="divider--v"></div>
+                <div id="right--column">
+                    <form id="speed--wrapper">
+                        <div id="speed--desc">
+                            <p>Speed:</p>
+                            <p id="speed--visual">1x</p>
+                        </div>
+
+                        <input 
+                            id="speed" 
+                            type="range" 
+                            min="1" 
+                            max="20"
+                            value="10"
+                        >
+                    </form>
+
+                    <form id="size--wrapper">
+                        <p>Size:</p>
+                        <select onfocus="this.oldValue = this.value;" id="dimension">
+                            <option value=20>Small (20 x 20)</option>
+                            <option value=50 selected>Medium (50 x 50)</option>
+                            <option value=100>Large (100 x 100)</option>
+                            <option value=160>Huge (160 x 160)</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <span id="icons" class="fa-stack fa-lg">
+        <a href="https://www.facebook.com/vince.sualog.52/" target="_blank"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
+        <a href="https://github.com/Valloiced" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
+        <a href="https://github.com/Valloiced/game-of-life" target="_blank"><i class="fa fa-code" aria-hidden="true"></i></a>
+     
+      
+    </span>
+</footer>
+<script src="./logic/controls.js" type="module"></script>
+<script src="./logic/game-of-life.js" type="module"></script>
+</html>
